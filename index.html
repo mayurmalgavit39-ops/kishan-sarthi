@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kisan Sarthi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#63cf17",
+            "background-light": "#f7f8f6",
+            "background-dark": "#182111",
+            "content-light": "#141811",
+            "content-dark": "#e0e5dc",
+            "subtle-light": "#728863",
+            "subtle-dark": "#a1b097",
+            "border-light": "#e0e5dc",
+            "border-dark": "#2d3a25",
+          },
+          fontFamily: { display: ["Public Sans", "sans-serif"] },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .text-content-light { color: #141811; }
+    .text-content-dark { color: #e0e5dc; }
+    .dark .text-content-light { color: #e0e5dc; }
+    .dark .text-content-dark { color: #141811; }
+    .bg-background-light { background-color: #f7f8f6; }
+    .dark .bg-background-light { background-color: #182111; }
+    .border-border-light { border-color: #e0e5dc; }
+    .dark .border-border-light { border-color: #2d3a25; }
+    .text-subtle-light { color: #728863; }
+    .dark .text-subtle-light { color: #a1b097; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+  <div class="flex min-h-screen flex-col">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16 md:h-20">
+          <a href="index.html" class="flex items-center gap-2">
+            <svg class="h-8 w-8 text-primary" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"/>
+            </svg>
+            <h2 class="text-xl md:text-2xl font-bold text-content-light dark:text-content-dark">Kisan Sarthi</h2>
+          </a>
+          <nav class="hidden md:flex items-center gap-8">
+            <a href="index.html" class="text-content-light dark:text-content-dark font-medium hover:text-primary transition-colors">Home</a>
+            <a href="#about" class="text-subtle-light dark:text-subtle-dark font-medium hover:text-primary transition-colors">About</a>
+            <a href="#services" class="text-subtle-light dark:text-subtle-dark font-medium hover:text-primary transition-colors">Services</a>
+            <a href="#contact" class="text-subtle-light dark:text-subtle-dark font-medium hover:text-primary transition-colors">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+            <a href="login.html" class="hidden md:inline-flex items-center justify-center rounded-lg bg-primary px-4 md:px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50">
+              Login
+            </a>
+            <button id="menuBtn" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false" class="md:hidden text-content-light dark:text-content-dark">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M4 6h16M4 12h16m-7 6h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden border-t border-border-light dark:border-border-dark">
+          <nav class="flex flex-col py-3">
+            <a href="index.html" class="px-2 py-2 rounded text-content-light dark:text-content-dark hover:bg-primary/10">Home</a>
+            <a href="#about" class="px-2 py-2 rounded text-content-light dark:text-content-dark hover:bg-primary/10">About</a>
+            <a href="#services" class="px-2 py-2 rounded text-content-light dark:text-content-dark hover:bg-primary/10">Services</a>
+            <a href="#contact" class="px-2 py-2 rounded text-content-light dark:text-content-dark hover:bg-primary/10">Contact</a>
+            <a href="login.html" class="mt-1 mx-2 inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white hover:bg-primary/90">Login</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+      <!-- Hero Section -->
+      <section class="relative">
+        <div class="container mx-auto px-4 py-14 md:py-20">
+          <div class="grid items-center gap-10 md:gap-12 md:grid-cols-2">
+            <div class="order-2 md:order-1 text-center md:text-left">
+              <h1 class="text-4xl md:text-6xl font-black text-content-light dark:text-content-dark leading-tight tracking-tighter mb-5">
+                Sowing seeds of prosperity.
+              </h1>
+              <p class="text-lg md:text-xl max-w-xl mx-auto md:mx-0 mb-8 text-subtle-light dark:text-subtle-dark">
+                Kisan Sarthi empowers farmers with technology and knowledge, fostering a future of abundance and hope.
+              </p>
+              <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center md:justify-start">
+                <a href="login.html" class="inline-flex items-center justify-center rounded-lg bg-primary px-7 py-3 text-base font-bold text-white shadow-lg transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 transform hover:scale-[1.02]">
+                  Join Our Community
+                </a>
+                <a href="#services" class="inline-flex items-center justify-center rounded-lg px-7 py-3 text-base font-bold text-content-light dark:text-content-dark border border-border-light dark:border-border-dark hover:border-primary hover:text-primary transition">
+                  Explore Services
+                </a>
+              </div>
+            </div>
+            <div class="order-1 md:order-2">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKyyxQP7j3woYARapOBHJWov8Mf8gcHaLB603BldJ8116GtRILj2OSWqPzRR5BJ_V7BCZownhHd9cRHp6rqX0WVThsScZT3ZDmgel__ne9VhJ2wzHZUh9hb1OHLWZAXcWTpO4juSk3LqqH6ZpdPLtgoRxlz_ZllbtlR2b9vhqWwDEVJxxlm66evpNtDIk7dqEbDu7H7INfzOlXJnpifxBiUqrEFUwp6SUId98R3QnNsgHHIAfv-r_aoeT8LbvbfS6-6bSenjpUiSQ"
+                   alt="Smiling farmer in a field"
+                   class="rounded-xl shadow-2xl w-full h-auto object-cover aspect-[4/3]"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-14 md:py-20">
+        <div class="container mx-auto px-4">
+          <div class="text-center max-w-3xl mx-auto mb-10 md:mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-content-light dark:text-content-dark mb-3">Our Core Services</h2>
+            <p class="text-subtle-light dark:text-subtle-dark text-lg">Kisan Sarthi offers a range of services designed to support farmers throughout their agricultural journey.</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Card 1 -->
+            <a href="chatbot.html" class="bg-white dark:bg-background-dark/50 rounded-xl p-7 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-border-light dark:border-border-dark flex flex-col items-center text-center">
+              <div class="bg-primary/10 rounded-full p-4 mb-5 md:mb-6">
+                <svg class="text-primary" width="36" height="36" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-content-light dark:text-content-dark mb-2">Chatbot Assistance</h3>
+              <p class="text-subtle-light dark:text-subtle-dark">Get instant support and information through our AI-powered chatbot.</p>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="prediction.html" class="bg-white dark:bg-background-dark/50 rounded-xl p-7 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-border-light dark:border-border-dark flex flex-col items-center text-center">
+              <div class="bg-primary/10 rounded-full p-4 mb-5 md:mb-6">
+                <svg class="text-primary" width="36" height="36" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M247.63,39.89a8,8,0,0,0-7.52-7.52c-51.76-3-93.32,12.74-111.18,42.22-11.8,19.49-11.78,43.16-.16,65.74a71.34,71.34,0,0,0-14.17,27L98.33,151c7.82-16.33,7.52-33.35-1-47.49-13.2-21.79-43.67-33.47-81.5-31.25a8,8,0,0,0-7.52,7.52c-2.23,37.83,9.46,68.3,31.25,81.5A45.82,45.82,0,0,0,63.44,168,54.58,54.58,0,0,0,87,162.33l25,25V216a8,8,0,0,0,16,0V186.51a55.61,55.61,0,0,1,12.27-35,73.91,73.91,0,0,0,33.31,8.4,60.9,60.9,0,0,0,31.83-8.86C234.89,133.21,250.67,91.65,247.63,39.89ZM47.81,147.6C32.47,138.31,23.79,116.32,24,88c28.32-.24,50.31,8.47,59.6,23.81,4.85,8,5.64,17.33,2.46,26.94L61.65,114.34a8,8,0,0,0-11.31,11.31l24.41,24.41C65.14,153.24,55.82,152.45,47.81,147.6Zm149.31-10.22c-13.4,8.11-29.15,8.73-45.15,2l53.69-53.7a8,8,0,0,0-11.31-11.31L140.65,128c-6.76-16-6.15-31.76,2-45.15,13.94-23,47-35.82,89.33-34.83C232.94,90.34,220.14,123.44,197.12,137.38Z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-content-light dark:text-content-dark mb-2">Crop Prediction</h3>
+              <p class="text-subtle-light dark:text-subtle-dark">Predict the best crops for your land based on soil and weather conditions.</p>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="schemes.html" class="bg-white dark:bg-background-dark/50 rounded-xl p-7 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-border-light dark:border-border-dark flex flex-col items-center text-center">
+              <div class="bg-primary/10 rounded-full p-4 mb-5 md:mb-6">
+                <svg class="text-primary" width="36" height="36" viewBox="0 0 256 256" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-content-light dark:text-content-dark mb-2">Government Schemes</h3>
+              <p class="text-subtle-light dark:text-subtle-dark">Access information on various government schemes and benefits for farmers.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+<footer class="bg-background-light dark:bg-background-dark border-t border-border-light dark:border-border-dark mt-10">
+  <div class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <!-- About Section -->
+    <div>
+      <h3 class="text-lg font-bold text-content-light dark:text-content-dark mb-3">Kisan Sarthi</h3>
+      <p class="text-subtle-light dark:text-subtle-dark text-sm">
+        Empowering farmers with AI-powered tools, crop prediction, and government scheme updates to cultivate success.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-bold text-content-light dark:text-content-dark mb-3">Quick Links</h3>
+      <ul class="text-subtle-light dark:text-subtle-dark space-y-2 text-sm">
+        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+        <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+        <li><a href="#services" class="hover:text-primary transition-colors">Services</a></li>
+        <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+        <li><a href="login.html" class="hover:text-primary transition-colors">Login</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Social -->
+    <div>
+      <h3 class="text-lg font-bold text-content-light dark:text-content-dark mb-3">Contact</h3>
+      <p class="text-subtle-light dark:text-subtle-dark text-sm mb-2">Email: support@kisansarthi.com</p>
+      <p class="text-subtle-light dark:text-subtle-dark text-sm mb-4">Phone: +91 98765 43210</p>
+      <div class="flex gap-4">
+        <a href="#" class="text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.26 4.26 0 001.88-2.36 8.53 8.53 0 01-2.7 1.03 4.24 4.24 0 00-7.23 3.87A12.05 12.05 0 013 5.1a4.23 4.23 0 001.31 5.66 4.18 4.18 0 01-1.92-.53v.05a4.24 4.24 0 003.39 4.16 4.28 4.28 0 01-1.91.07 4.25 4.25 0 003.96 2.95 8.52 8.52 0 01-5.27 1.82c-.34 0-.67-.02-1-.06a12.05 12.05 0 006.52 1.91c7.83 0 12.11-6.49 12.11-12.11 0-.18 0-.36-.01-.54A8.65 8.65 0 0024 4.56a8.36 8.36 0 01-2.54.7z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 4.41 2.86 8.17 6.84 9.5v-6.72h-2.06V12h2.06V9.92c0-2.03 1.21-3.15 3.07-3.15.89 0 1.82.16 1.82.16v2h-1.02c-1.01 0-1.32.62-1.32 1.26V12h2.25l-.36 2.82h-1.89v6.72c3.98-1.33 6.84-5.09 6.84-9.5 0-5.5-4.46-9.96-9.96-9.96z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-subtle-light dark:text-subtle-dark hover:text-primary transition-colors">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M21.6 2H2.4A2.4 2.4 0 000 4.4v15.2A2.4 2.4 0 002.4 22h19.2a2.4 2.4 0 002.4-2.4V4.4A2.4 2.4 0 0021.6 2zm-11.4 16.4H5.6V10h4.6v8.4zm-2.3-9.5a2.7 2.7 0 112.7-2.7 2.7 2.7 0 01-2.7 2.7zm13.7 9.5h-4.6v-4.2c0-1-.02-2.3-1.4-2.3s-1.6 1.1-1.6 2.3v4.2h-4.6V10h4.4v1.2h.06a4.8 4.8 0 014.3-2.4c4.6 0 5.4 3 5.4 6.9v4.3z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div class="text-center text-subtle-light dark:text-subtle-dark text-sm mt-6 pb-4">
+    &copy; 2025 Kisan Sarthi. All rights reserved.
+  </div>
+</footer>
+
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = mobileMenu.classList.toggle("hidden");
+      menuBtn.setAttribute("aria-expanded", !isOpen);
+    });
+  </script>
+</body>
+</html>

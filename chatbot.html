@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kisan Sarthi</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{primary:"#63cf17"}}}}
+</script>
+</head>
+<body class="bg-[#f7f8f6] text-[#141811]">
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="index.html" class="text-2xl font-bold text-primary">🌱 Kisan Sarthi</a>
+    <nav class="flex gap-4 text-sm font-medium">
+      <a href="index.html" class="hover:text-primary">Home</a>
+      <a href="chatbot.html" class="hover:text-primary">Chatbot</a>
+      <a href="prediction.html" class="hover:text-primary">Prediction</a>
+      <a href="schemes.html" class="hover:text-primary">Schemes</a>
+      <a href="login.html" class="rounded-lg bg-primary px-4 py-2 text-white">Login</a>
+    </nav>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-12">
+  <h1 class="text-4xl font-bold text-center mb-2">🤖 Kisan Sarthi Chatbot</h1>
+  <p class="text-center text-gray-500 mb-8">Ask a basic agriculture-related question.</p>
+  <div class="bg-white rounded-2xl shadow border p-6">
+    <div id="chat" class="h-80 overflow-y-auto bg-gray-50 rounded-xl p-4 space-y-3">
+      <div class="bg-green-100 rounded-lg p-3">Namaste! I am Kisan Sarthi. How can I help you?</div>
+    </div>
+    <div class="flex gap-2 mt-4">
+      <input id="question" class="flex-1 border rounded-lg px-4 py-3"
+        placeholder="e.g. Which crop needs less water?">
+      <button onclick="ask()" class="bg-primary text-white rounded-lg px-5 font-bold">Send</button>
+    </div>
+  </div>
+</main>
+<script>
+function ask(){
+  const input=document.getElementById("question");
+  const q=input.value.trim();
+  if(!q)return;
+  const chat=document.getElementById("chat");
+  chat.innerHTML += '<div class="bg-white border rounded-lg p-3"><b>You:</b> '+q.replace(/</g,"&lt;")+'</div>';
+  let answer="Please consult a local agriculture expert for crop-specific advice.";
+  const x=q.toLowerCase();
+  if(x.includes("water")) answer="Drip irrigation can help save water. Crop water needs depend on soil, weather and crop type.";
+  else if(x.includes("soil")) answer="A soil test can help determine pH and nutrient requirements before choosing a crop.";
+  else if(x.includes("scheme")) answer="You can check the Government Schemes page for the schemes listed in this demo.";
+  chat.innerHTML += '<div class="bg-green-100 rounded-lg p-3"><b>Kisan Sarthi:</b> '+answer+'</div>';
+  input.value="";
+  chat.scrollTop=chat.scrollHeight;
+}
+</script>
+
+<footer class="border-t mt-16">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-center text-sm text-gray-500">
+    © 2026 Kisan Sarthi. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>

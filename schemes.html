@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kisan Sarthi - Government Schemes</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#63cf17",
+            "background-light": "#f7f8f6",
+            "background-dark": "#182111",
+          },
+          fontFamily: { display: ["Public Sans"] },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-black dark:text-white">
+  <div class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm border-b border-primary/20 dark:border-primary/30">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+          <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-2 text-xl font-bold">
+              <span class="material-symbols-outlined text-primary text-3xl">agriculture</span>
+              <span>Kisan Sarthi</span>
+            </a>
+          </div>
+
+          <!-- Desktop nav -->
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html#chatbot">Chatbot</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors" href="index.html#services">Crop Prediction</a>
+            <a class="text-sm font-bold text-primary" href="#">Schemes</a>
+          </nav>
+
+          <!-- Right actions -->
+          <div class="hidden sm:flex items-center gap-4">
+            <button class="p-2 rounded-full hover:bg-primary/20 dark:hover:bg-primary/30 transition-colors" aria-label="Notifications">
+              <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <div class="w-10 h-10 rounded-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAr-9l0zvNuVA1IH_yRzkxxU7IgkwwRMBE9KcFXmMBsC37HWwulgsThvMzk-MAK7_ymG6beVGBXQhbSIQrN9E5TqA_pNgg3QPCITmwsstTLcrFsFqznj02g7gZQG-V5GEog6lzOce8wd45VQnjpdt2H5EKNNbpzfdUEqBq1pcAj7qsfGWRs2J7fsmH-Wf8KzmN_q9cgDGx1EzhOV1SZ3TbkR7HpLs_vfZE3FfNv9oSzswlXTom7hPl53E-boPmd2xN6CA-gElnTsW0')"></div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button id="menuBtn" class="md:hidden p-2 rounded-lg hover:bg-primary/10 dark:hover:bg-primary/20" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden pb-3 border-t border-primary/20 dark:border-primary/30">
+          <nav class="flex flex-col py-2">
+            <a class="px-2 py-2 rounded hover:bg-primary/10 dark:hover:bg-primary/20" href="index.html#chatbot">Chatbot</a>
+            <a class="px-2 py-2 rounded hover:bg-primary/10 dark:hover:bg-primary/20" href="index.html#services">Crop Prediction</a>
+            <a class="px-2 py-2 rounded bg-primary/10 dark:bg-primary/20 text-primary" href="#">Schemes</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- Title -->
+        <div class="text-center mb-8 md:mb-12">
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Government Schemes</h1>
+          <p class="mt-3 md:mt-4 text-base md:text-lg text-black/60 dark:text-white/60">Discover programs and initiatives to support your farming journey.</p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <!-- Scheme Cards -->
+          <article class="cursor-pointer bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('p1.png');"></div>
+            <div class="p-5">
+              <div class="text-xs text-primary font-bold uppercase">Financial Support</div>
+              <a class="block mt-2 text-lg font-semibold">Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)</a>
+              <p class="mt-2 text-black/60 dark:text-white/60">₹6,000 per year for small and marginal farmers.</p>
+            </div>
+          </article>
+
+          <article class="cursor-pointer bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('p2.png');"></div>
+            <div class="p-5">
+              <div class="text-xs text-primary font-bold uppercase">Crop Insurance</div>
+              <a class="block mt-2 text-lg font-semibold">Pradhan Mantri Fasal Bima Yojana (PMFBY)</a>
+              <p class="mt-2 text-black/60 dark:text-white/60">Crop insurance for yield loss due to calamities.</p>
+            </div>
+          </article>
+
+          <article class="cursor-pointer bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('p3.png');"></div>
+            <div class="p-5">
+              <div class="text-xs text-primary font-bold uppercase">Soil Health</div>
+              <a class="block mt-2 text-lg font-semibold">Soil Health Card Scheme</a>
+              <p class="mt-2 text-black/60 dark:text-white/60">Know your soil nutrients and fertilizer usage.</p>
+            </div>
+          </article>
+
+          <article class="cursor-pointer bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('p4.png');"></div>
+            <div class="p-5">
+              <div class="text-xs text-primary font-bold uppercase">Organic Farming</div>
+              <a class="block mt-2 text-lg font-semibold">Paramparagat Krishi Vikas Yojana (PKVY)</a>
+              <p class="mt-2 text-black/60 dark:text-white/60">Promotes eco-friendly organic farming.</p>
+            </div>
+          </article>
+
+          <article class="cursor-pointer bg-background-light dark:bg-background-dark border border-primary/20 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
+            <div class="h-48 bg-cover bg-center" style="background-image: url('p5.png');"></div>
+            <div class="p-5">
+              <div class="text-xs text-primary font-bold uppercase">Credit Facility</div>
+              <a class="block mt-2 text-lg font-semibold">Kisan Credit Card (KCC)</a>
+              <p class="mt-2 text-black/60 dark:text-white/60">Instant loan facility for farmers.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-background-light dark:bg-background-dark border-t border-primary/20 mt-12">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-black/60 dark:text-white/60">
+        <p>© 2025 Kisan Sarthi. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- MODAL -->
+  <div id="schemeModal" class="fixed inset-0 bg-black/60 hidden flex justify-center items-start z-50 pt-10 sm:pt-20 overflow-y-auto">
+    <div class="bg-white dark:bg-background-dark rounded-2xl max-w-3xl w-[95%] p-8 shadow-2xl relative transform transition-all scale-95 opacity-0 duration-300" id="modalBox">
+      <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-primary">
+        <span class="material-symbols-outlined text-3xl">close</span>
+      </button>
+      <h2 id="modalTitle" class="text-3xl font-bold mb-2 text-primary"></h2>
+      <p id="modalCategory" class="text-sm text-gray-500 dark:text-gray-400 mb-5"></p>
+      <div id="modalDetails" class="text-gray-700 dark:text-gray-200 text-sm space-y-4 leading-relaxed"></div>
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Scheme details data with more details
+    const schemeDetails = {
+      "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)": {
+        category: "Financial Support",
+        details: {
+          "Eligibility": "All small and marginal farmer families with cultivable land.",
+          "Application Process": "Farmers can register through the official PM-KISAN portal or via local revenue officers. Applications are verified at the village level before approval.",
+          "Required Documents": "Aadhaar card, bank account details, landholding documents, proof of family members.",
+          "Benefits": "Income support of ₹6,000 per year in 3 installments of ₹2,000 each. Helps in buying seeds, fertilizers, and other inputs.",
+          "Duration": "Ongoing scheme with annual payments.",
+          "Support": "Helpline numbers and local agriculture offices provide assistance.",
+          "Links": "<a href='https://pmkisan.gov.in/' target='_blank' class='text-primary underline'>Official PM-KISAN Portal</a>"
+        }
+      },
+      "Pradhan Mantri Fasal Bima Yojana (PMFBY)": {
+        category: "Crop Insurance",
+        details: {
+          "Eligibility": "All farmers growing notified crops in notified areas.",
+          "Application Process": "Apply through insurance company, bank, or online portal before crop season. Registration requires verification of crop type and area.",
+          "Required Documents": "Land records, Aadhaar, bank account, crop details, previous yield information.",
+          "Benefits": "Financial assistance in case of crop loss due to natural calamities, pests, or diseases. Encourages farmers to adopt modern practices.",
+          "Duration": "Coverage for the entire crop season.",
+          "Support": "Insurance helpline and local agriculture offices.",
+          "Links": "<a href='https://pmfby.gov.in/' target='_blank' class='text-primary underline'>Official PMFBY Portal</a>"
+        }
+      },
+      "Soil Health Card Scheme": {
+        category: "Soil Health",
+        details: {
+          "Eligibility": "All farmers with landholdings.",
+          "Application Process": "Apply through local agriculture office or online portal. Soil samples are collected and analyzed in labs.",
+          "Required Documents": "Land details, Aadhaar card.",
+          "Benefits": "Detailed soil nutrient analysis, recommendations for fertilizers, helps improve productivity and soil fertility.",
+          "Duration": "Soil cards updated every 3 years.",
+          "Support": "State soil testing labs and agriculture extension officers.",
+          "Links": "<a href='https://soilhealth.dac.gov.in/' target='_blank' class='text-primary underline'>Soil Health Portal</a>"
+        }
+      },
+      "Paramparagat Krishi Vikas Yojana (PKVY)": {
+        category: "Organic Farming",
+        details: {
+          "Eligibility": "Farmers interested in organic farming in cluster approach.",
+          "Application Process": "Register via state agriculture department. Training provided in clusters before certification.",
+          "Required Documents": "Land documents, Aadhaar, farming experience details.",
+          "Benefits": "Support for organic inputs, training, certification, and marketing assistance.",
+          "Duration": "Cluster certification valid for 3 years, with periodic audits.",
+          "Support": "State agriculture departments and organic certification agencies.",
+          "Links": "<a href='https://pkvy.icar.gov.in/' target='_blank' class='text-primary underline'>PKVY Portal</a>"
+        }
+      },
+      "Kisan Credit Card (KCC)": {
+        category: "Credit Facility",
+        details: {
+          "Eligibility": "All farmers requiring short-term credit for cultivation or post-harvest expenses.",
+          "Application Process": "Apply at bank branch or online banking portal with KCC facility. Banks verify land records and income.",
+          "Required Documents": "KYC, land records, Aadhaar, bank account details.",
+          "Benefits": "Easy access to credit at low interest rates, supports cultivation, post-harvest, and consumption needs.",
+          "Duration": "Credit limit reviewed annually.",
+          "Support": "Bank helplines and agriculture offices.",
+          "Links": "<a href='https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=10745' target='_blank' class='text-primary underline'>KCC Info</a>"
+        }
+      },
+    };
+
+    // Modal logic
+    const modal = document.getElementById("schemeModal");
+    const modalBox = document.getElementById("modalBox");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalDetails = document.getElementById("modalDetails");
+    const closeModal = document.getElementById("closeModal");
+    const cards = document.querySelectorAll("article");
+
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        const title = card.querySelector("a").innerText.trim();
+        const scheme = schemeDetails[title];
+        if (scheme) {
+          modalTitle.textContent = title;
+          modalCategory.textContent = scheme.category;
+          modalDetails.innerHTML = '';
+          for (const [key, value] of Object.entries(scheme.details)) {
+            const section = document.createElement('div');
+            section.innerHTML = `<strong class="text-gray-800 dark:text-white">${key}:</strong> <span class="text-gray-700 dark:text-gray-200">${value}</span>`;
+            modalDetails.appendChild(section);
+          }
+          modal.classList.remove("hidden");
+          setTimeout(() => {
+            modalBox.classList.remove("scale-95", "opacity-0");
+            modalBox.classList.add("scale-100", "opacity-100");
+          }, 10);
+        }
+      });
+    });
+
+    closeModal.addEventListener("click", () => {
+      modalBox.classList.add("scale-95", "opacity-0");
+      setTimeout(() => modal.classList.add("hidden"), 200);
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modalBox.classList.add("scale-95", "opacity-0");
+        setTimeout(() => modal.classList.add("hidden"), 200);
+      }
+    });
+  </script>
+</body>
+</html>

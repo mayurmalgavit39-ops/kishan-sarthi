@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kisan Sarthi - Login</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#63cf17",
+            "background-light": "#f7f8f6",
+            "background-dark": "#182111",
+            "text-light": "#141811",
+            "text-dark": "#f7f8f6",
+            "subtle-light": "#728863",
+            "subtle-dark": "#a0b895",
+            "border-light": "#e0e5dc",
+            "border-dark": "#3a4d2e"
+          },
+          fontFamily: { display: ["Public Sans"] },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.75rem",
+            full: "9999px"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <div class="flex flex-col min-h-screen">
+    <!-- Header -->
+    <header class="w-full px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 border-b border-border-light dark:border-border-dark">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 text-primary">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+            </svg>
+          </div>
+          <h1 class="text-xl font-bold">Kisan Sarthi</h1>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+          <a href="index.html#chatbot" class="hover:text-primary transition-colors">Chatbot</a>
+          <a href="index.html#services" class="hover:text-primary transition-colors">Crop Prediction</a>
+          <a href="index.html#services" class="hover:text-primary transition-colors">Government Schemes</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <a href="register.html" class="px-4 py-2 text-sm font-bold rounded-lg bg-primary/10 dark:bg-primary/20 hover:bg-primary/20 dark:hover:bg-primary/30 text-primary transition-colors">
+            Register
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div class="w-full max-w-md space-y-8">
+        <div>
+          <h2 class="mt-6 text-center text-3xl font-extrabold">Welcome back</h2>
+          <p class="mt-2 text-center text-sm text-subtle-light dark:text-subtle-dark">
+            Login to access your Kisan Sarthi dashboard.
+          </p>
+        </div>
+
+        <!-- Alert -->
+        <div id="loginAlert" class="hidden rounded-lg border px-3 py-2 text-sm" role="alert"></div>
+
+        <form id="loginForm" class="mt-8 space-y-6" method="POST" novalidate>
+          <div class="rounded-lg shadow-sm -space-y-px">
+            <div>
+              <label class="sr-only" for="identity">Email or Full Name</label>
+              <input
+                id="identity"
+                name="identity"
+                type="text"
+                autocomplete="email"
+                required
+                placeholder="Email or Full Name"
+                class="appearance-none rounded-t-lg relative block w-full px-3 py-4 border border-border-light dark:border-border-dark placeholder-subtle-light dark:placeholder-subtle-dark bg-background-light dark:bg-background-dark focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label class="sr-only" for="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                placeholder="Password"
+                class="appearance-none rounded-b-lg relative block w-full px-3 py-4 border border-border-light dark:border-border-dark placeholder-subtle-light dark:placeholder-subtle-dark bg-background-light dark:bg-background-dark focus:outline-none focus:ring-primary focus:border-primary focus:z-10 sm:text-sm"
+              />
+            </div>
+          </div>
+
+          <div class="flex items-center justify-end">
+            <div class="text-sm">
+              <a href="#" class="font-medium text-primary hover:text-primary/80">Forgot your password?</a>
+            </div>
+          </div>
+
+          <div>
+            <button
+              id="loginBtn"
+              type="submit"
+              class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-black bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+
+        <div class="relative">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-border-light dark:border-border-dark"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-2 bg-background-light dark:bg-background-dark text-subtle-light dark:text-subtle-dark">Or login with</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <button type="button" class="w-full inline-flex justify-center items-center gap-2 py-3 px-4 text-sm font-medium rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark hover:bg-primary/10 dark:hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+            <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 488 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 126 23.4 172.9 61.9l-76.2 64.5C308.6 92.6 280.7 80 248 80c-82.8 0-150.5 67.7-150.5 151.2s67.7 151.2 150.5 151.2c95.7 0 131.3-76.3 136.2-115.8H248v-85.3h236.1c2.3 12.7 3.9 26.9 3.9 41.4z"/></svg>
+            Google
+          </button>
+          <button type="button" class="w-full inline-flex justify-center items-center gap-2 py-3 px-4 text-sm font-medium rounded-lg border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark hover:bg-primary/10 dark:hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+            <svg aria-hidden="true" class="w-5 h-5" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+            Facebook
+          </button>
+        </div>
+
+        <div class="text-sm text-center">
+          <a href="register.html" class="font-medium text-subtle-light dark:text-subtle-dark hover:text-primary dark:hover:text-primary">
+            Don't have an account? <span class="font-bold text-primary">Register</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // LocalStorage keys
+    const KS_USERS_KEY = 'ks_users';
+    const KS_CURRENT_USER_KEY = 'ks_current_user';
+
+    // Utils
+    const getUsers = () => JSON.parse(localStorage.getItem(KS_USERS_KEY) || '[]');
+    const saveUsers = (users) => localStorage.setItem(KS_USERS_KEY, JSON.stringify(users));
+    const toHex = (buf) => Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    async function hashPassword(pwd) {
+      if (window.crypto?.subtle) {
+        const data = new TextEncoder().encode(pwd);
+        const digest = await crypto.subtle.digest('SHA-256', data);
+        return 'sha256:' + toHex(digest);
+      }
+      return 'plain:' + pwd;
+    }
+    const looksLikeEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+    function showAlert(el, type, text) {
+      el.classList.remove('hidden');
+      el.textContent = text;
+      const base = 'rounded-lg border px-3 py-2 text-sm';
+      const kinds = {
+        success: 'bg-green-50 text-green-800 border-green-300 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800',
+        error:   'bg-red-50 text-red-800 border-red-300 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800',
+        info:    'bg-blue-50 text-blue-800 border-blue-300 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800'
+      };
+      el.className = `${base} ${kinds[type] ?? kinds.info}`;
+    }
+
+    // Prefill success after registration
+    (function initBannerFromQuery() {
+      const params = new URLSearchParams(location.search);
+      if (params.get('registered') === '1') {
+        const email = params.get('email') || '';
+        const alertEl = document.getElementById('loginAlert');
+        showAlert(alertEl, 'success', `Account created successfully. Please sign in${email ? ' with ' + email : ''}.`);
+        if (email) {
+          const idEl = document.getElementById('identity');
+          idEl.value = email;
+          document.getElementById('password').focus();
+        }
+      }
+    })();
+
+    // Handle login + redirect to homepage
+    (function attachLogin() {
+      const form = document.getElementById('loginForm');
+      const alertEl = document.getElementById('loginAlert');
+      const btn = document.getElementById('loginBtn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        showAlert(alertEl, 'info', 'Checking credentials...');
+
+        const identity = (document.getElementById('identity').value || '').trim();
+        const password = document.getElementById('password').value || '';
+
+        if (!identity || !password) {
+          showAlert(alertEl, 'error', 'Please enter both identity and password.');
+          return;
+        }
+
+        const users = getUsers();
+        let user = null;
+        if (looksLikeEmail(identity)) {
+          user = users.find(u => u.email === identity.toLowerCase());
+        } else {
+          user = users.find(u => (u.name || '').toLowerCase() === identity.toLowerCase());
+        }
+
+        if (!user) {
+          showAlert(alertEl, 'error', 'User not found. Please check your details or register.');
+          return;
+        }
+
+        btn.disabled = true;
+        try {
+          const hash = await hashPassword(password);
+          if (user.passwordHash !== hash) {
+            showAlert(alertEl, 'error', 'Incorrect password. Try again.');
+            btn.disabled = false;
+            return;
+          }
+
+          // Save current user session
+          const current = { id: user.id, email: user.email, name: user.name, loggedInAt: Date.now() };
+          localStorage.setItem(KS_CURRENT_USER_KEY, JSON.stringify(current));
+
+          // Redirect to homepage (or returnTo target)
+          showAlert(alertEl, 'success', 'Logged in successfully! Redirecting...');
+          const params = new URLSearchParams(location.search);
+          const returnTo = params.get('returnTo') || 'index.html';
+          setTimeout(() => {
+            window.location.replace(returnTo); // replace avoids going back to the login page
+          }, 600);
+        } catch (err) {
+          console.error(err);
+          showAlert(alertEl, 'error', 'Something went wrong. Please try again.');
+        } finally {
+          btn.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
